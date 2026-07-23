@@ -1,0 +1,624 @@
+:root {
+    --paper:#f2ede1; --paper-bright:#f7f3e9; --ink:#1d2833;
+    --clay:#c98847; --clay-deep:#8a5a26; --madder:#ad112e;
+    --madder-deep:#8c1226; --leaf:#a3c074; --leaf-deep:#3e5223;
+    --body-ink:#3a3428;
+    --Tpurple: #4b2f3a;
+  }
+* { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; }
+      body { 
+      background: var(--paper); 
+      color: var(--body-ink); font-family: 'Montserrat', sans-serif; 
+}
+
+body { 
+      background: var(--paper); 
+      color: var(--body-ink);
+      font-family: 'Montserrat', sans-serif; 
+}
+nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--paper-bright);
+      border-bottom: 1px solid #8c1226;
+      position: fixed;
+      padding: 20px 40px;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000; /* This ensures the nav bar sits on top of other elements */
+}
+nav .links { 
+      font-family: Montserrat, sans-serif; 
+      font-size: 0.72rem; 
+      letter-spacing: 0.18em; 
+      padding-right: 2rem;
+}
+nav .links a { 
+      color: #6b6250; 
+      text-decoration: none; 
+      margin-left: 1.6rem; 
+}
+nav .links a:hover, nav .links a.here { 
+      color: var(--clay-deep); 
+}
+nav .logo {
+      padding-left: 2rem;
+}
+nav .logo img {
+      height: 34px;   /* or whatever height fits your nav */
+      width: auto;    /* keeps the proportions */
+      display: block; /* removes a small mystery gap under images */
+}
+.nav-location {
+      font-family: jost, sans-serif;
+      font-size: .6em;
+      color: #6b6250;
+      font-weight: 100;
+      justify-content: space-between;   
+}
+.nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;   /* no underline on the lockup */
+      color: #3a3428;
+      font: 'Jost', sans-serif;
+}
+
+.nav-brand img {
+      height: 44px;   /* this one number controls the whole logo size */
+      width: auto;
+}
+.brand-hidden {
+  visibility: hidden;
+}
+
+/* ── HERO  ────────────────────────────────────── */
+
+.hero {
+      padding-top: 100px; /* Adjust this value based on the height of your nav bar */
+      min-height: 70vh;
+      background-size: cover;
+      background-position: center 60%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+
+.threshold { 
+      background: rgba(242,237,225,0.9); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px);
+      padding: 2rem 2.6rem; 
+      max-width: 40rem; 
+      text-align: center; 
+}
+.threshold .eyebrow {
+      font-family: 'Jost', sans-serif;
+      color: var(--Tpurple);
+      padding-bottom: 15px;
+      font-weight: 400;
+      font-size: 0.95rem;
+      letter-spacing: 0.12em;
+}
+
+h1 {
+      font-family: 'Merriweather', serif;
+      color: var(--leaf-deep);
+      padding-bottom: 10px;
+      font-weight: 700;
+      letter-spacing: .11em
+
+}
+
+.line {
+      font-family:'Montserrat', serif;
+      font-weight: 300;
+      letter-spacing: .08em;
+      line-height: 1.4em;
+}
+
+main { 
+      max-width: 60rem; 
+      margin: 0 auto; 
+      padding: 3rem 1.5rem 3.6rem; 
+}
+main .intro { 
+      font-size: 0.98rem; 
+      line-height: 1.75; 
+      margin: 0.8rem 0 2.2rem; 
+}
+
+main .eyebrow {
+      font-family: 'Jost', sans-serif;
+      color: var(--madder-deep);
+      padding-bottom: 10px;
+      font-weight: 400;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+}
+.facts .eyebrow {
+      font-family: 'Jost', sans-serif;
+      color: var(--madder-deep);
+      padding-bottom: 10px;
+      font-weight: 400;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+}
+
+.facts {
+  max-width: 56rem;   /* tune this — not unlimited, not 40rem, something readable */
+}
+
+.facts p { 
+      font: 'Montserrat', sans-serif;
+      font-size: 0.95rem; 
+      line-height: 1.6; 
+      margin-bottom: 0.9rem; 
+}
+.facts .fact { 
+      border-left: 4px solid var(--clay); padding-left: 1rem; 
+      margin: 1.2rem 0; 
+}
+
+.facts h2 {
+      padding-bottom: 20px;
+}
+.who-we-are-wrap {
+      display: flex;
+      align-items: flex-start;   /* top-align logo with the text block, not centered */
+      gap: 1.25rem;
+}
+.who-we-are-logo img {
+      width: 175px;
+      height: auto;
+      display: block;
+      flex-shrink: 0;
+}
+.cards { 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap: 1.4rem; 
+}
+@media (max-width:900px){ .cards { grid-template-columns:1fr; } }
+
+.card { 
+      padding: 1.6rem 1.5rem; 
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.card-header img {
+  width: 100px;
+  height: 120px;
+  border-radius: 50%;   /* optional — small round photos read very "team page" */
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.card-header img.tracy {
+  object-position: center 10%;
+}
+.card h2 { 
+      font-weight: 700; 
+      font-size: 1.25rem; 
+      margin-bottom: 0.9rem; 
+}
+.card h2 span { 
+      font-weight: 300; 
+      font-size: 0.85rem; 
+}
+.card .label { 
+      font-family: Montserrat, sans-serif;
+      font-size: 0.68rem; 
+      letter-spacing: 0.2em;
+      text-transform: uppercase; 
+      margin-bottom: 0.4rem; 
+}
+.card p { 
+      font-size: 0.92rem; 
+      line-height: 1.7; 
+      margin-bottom: 1rem; 
+}
+.card a { 
+      font-family: Montserrat,sans-serif; 
+      font-size: 0.75rem; 
+      letter-spacing: 0.12em;
+      text-decoration: none; 
+      border-bottom: 1px solid; 
+      padding-bottom: 2px; 
+}
+.card.indigo { 
+      background: var(--ink); 
+}
+.card.Tpurple {
+      background: var(--Tpurple);
+}
+.card.Tpurple h2 { color: #efe9dc; }
+.card.Tpurple h2 span { color:#aeb9c7; }
+.card.Tpurple .label { color:#8fa3bd; } 
+.card.Tpurple p { color:#c3cdd9; }
+.card.Tpurple a { 
+      color: #e8c99b; 
+      border-color:var(--clay); 
+}
+.card.indigo h2 { 
+      color: #efe9dc; 
+} 
+.card.indigo h2 span { color:#aeb9c7; }
+.card.indigo .label { color:#8fa3bd; } 
+.card.indigo p { color:#c3cdd9; }
+.card.indigo a { 
+      color: #e8c99b; 
+      border-color:var(--clay); 
+}
+.card.leaf { 
+      background: var(--leaf); 
+}
+.card.leaf h2 { color:#243015; } 
+.card.leaf h2 span { color:#4a5e2a; }
+.card.leaf .label { color:#15180f; } .card.leaf p { color:var(--leaf-deep); }
+.card.leaf a { 
+      color: #243015; 
+      border-color: #243015; 
+}
+.card.clay { background:var(--clay); }
+.card.clay h2 { color:#243015; } 
+.card.clay h2 span { color:#4a5e2a; }
+.card.clay .label { color:#243015; } 
+.card.clay p { color:#243015; }
+.card.clay a { 
+      color: #4a5e2a; 
+      border-color: #243015; 
+}
+.initials { 
+      width: 180px; 
+      height: 130px; 
+      background: rgba(242,237,225,0.25); 
+      display: flex;
+      align-items: center; justify-content: center; 
+      font-size: 1.6rem; 
+      color: #fdf0ee; 
+      margin-bottom: 1rem; 
+}
+.rows { 
+      max-width:44rem; 
+}
+.row { 
+      display:flex; 
+      justify-content: space-between; 
+      align-items: baseline; 
+      gap: 1rem;
+      padding: 1.1rem 0 1.1rem 1rem; border-bottom: 1px solid #ddd5c2; 
+}
+.row h2 { 
+      font-weight: 400; 
+      font-size: 1.05rem; 
+      color: var(--ink); 
+}
+.row .note { 
+      font-style: italic; 
+      font-size: 0.85rem; 
+      color: #6b6250; 
+      white-space: nowrap; 
+}
+.row.r-leaf { 
+      border-left: 4px solid var(--leaf); 
+}
+.row.r-madder { 
+      border-left: 4px solid var(--madder); 
+}
+.row.r-clay { 
+      border-left: 4px solid var(--clay); 
+}
+.row.r-ink { 
+      border-left: 4px solid var(--ink); 
+}
+.barrier { 
+      font-style: italic; 
+      font-size: 0.9rem; 
+      color: var(--madder-deep); 
+      margin-top: 1.4rem; 
+}
+
+.page-space main .eyebrow {
+      padding-top: 15px;
+      padding-bottom: 20px;
+}
+
+.drop {
+      border-top: 1px solid #ddd5c2;
+      border-bottom: 1px solid #ddd5c2;
+      margin: 1.5rem 0;
+}
+
+.drop summary {
+      cursor: pointer;
+      padding: 1rem 0;
+      font-family: Montserrat, sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--madder-deep);
+}
+
+.drop[open] summary {
+      margin-bottom: 0.5rem;
+}
+
+.drop > p:last-child {
+      padding-bottom: 1.5rem;
+}
+.prose p { 
+      font: 'Montserrat', sans-serif;
+      font-size: 0.95rem; 
+      line-height: 1.6; 
+      margin-bottom: 0.9rem; 
+}
+
+.facts a {
+      color: var(--clay-deep);
+      text-decoration: none;
+      border-bottom: 1px solid var(--clay);
+      padding-bottom: 1px;
+}
+
+.facts a:hover {
+      color: var(--madder-deep);
+      border-color: var(--madder);
+}
+
+.facts a:focus {
+      outline: 2px solid var(--clay);
+      outline-offset: 2px;
+}
+
+.prose a {
+      color: var(--clay-deep);
+      text-decoration: none;
+      border-bottom: 1px solid var(--clay);
+      padding-bottom: 1px;
+}
+
+.prose a:hover {
+      color: var(--madder-deep);
+      border-color: var(--madder);
+}
+
+.prose a:focus {
+      outline: 2px solid var(--clay);
+      outline-offset: 2px;
+}
+
+.group a {
+      color: var(--clay-deep);
+      text-decoration: none;
+      border-bottom: 1px solid var(--clay);
+      padding-bottom: 1px;
+}
+
+.group a:hover {
+      color: var(--madder-deep);
+      border-color: var(--madder);
+}
+
+.group a:focus {
+      outline: 2px solid var(--clay);
+      outline-offset: 2px;
+}
+
+.group {
+      border-left: 4px solid var(--clay);
+      padding-left: 1rem;
+      padding-bottom: 1.5rem;
+}
+
+.group.g-madder { border-left-color: var(--madder); }
+.group.g-leaf   { border-left-color: var(--leaf); }
+.group.g-clay   { border-left-color: var(--clay); }
+.group.g-ink    { border-left-color: var(--ink); }
+
+.group .meta {
+      font-style: italic;
+      font-size: 0.85rem;
+      color: #6b6250;
+      margin-top: 0.4rem;
+}
+
+.group p {
+      font: 'Montserrat', sans-serif;
+      font-size: 0.95rem; 
+      line-height: 1.6; 
+      margin-bottom: 0.9rem; 
+}
+
+/* ── SPACE ────────────────────────────────────────────── */
+.photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 40px 0 28px;
+}
+
+/* swap .photo-slot for <img> tags when photos are ready */
+.photo-slot {
+  background: rgba(122,106,90,0.12);
+  border: 1px dashed var(--soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+
+.photo-slot .plus {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--mid);
+  opacity: 1;
+}
+
+/* when you add real images, use this class */
+.photo-item {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+.space-photo {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-caption {
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: var(--soft);
+  text-align: center;
+  margin-top: 0;
+  text-transform: none;
+}
+
+.photos-note {
+  font-style: italic;
+  color: var(--mid);
+  font-size: .9rem;
+  margin-top: 0;
+}
+
+/* ── FOOTER ───────────────────────────────────────────── */
+footer {
+  background: var(--ink);
+  color: rgba(237,232,223,0.55);
+  text-align: center;
+  padding: 64px 24px 48px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+}
+
+footer .footer-logo {
+  font-family: 'Merriweather', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--moon);
+  margin-bottom: 4px;
+  letter-spacing: 0.02em;
+}
+
+footer .footer-sub {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--soft);
+  opacity: 0.5;
+  margin-bottom: 32px;
+  line-height: 2;
+}
+
+footer a {
+  color: var(--soft);
+  text-decoration: none;
+}
+
+footer a:hover { opacity: 0.8; }
+
+.footer-columns {
+  display: flex;
+  gap: 48px;
+  justify-content: center;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 180px;
+}
+
+.footer-col-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--soft);
+  opacity: 0.5;
+  margin-bottom: 4px;
+}
+
+.footer-col a {
+  color: rgba(237,232,223,0.55);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.footer-col a:hover { color: var(--moon); }
+
+footer .footer-copy {
+  opacity: 0.3;
+  font-size: 0.65rem;
+}
+.draft { 
+      display: inline-block; 
+      font-family: Montserrat, sans-serif; font-size: 0.62rem; 
+      letter-spacing: 0.15em;
+      padding: 3px 8px; 
+      border: 1px solid currentColor; margin-bottom: 0.6rem; 
+}
+
+.hero-home { 
+      background-image:url(../images/wait_room_hero.jpg); 
+      background-position: center 60%;
+      min-height: 70vh;
+      padding: clamp(3rem,9vw,6rem) 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-size: cover;
+ }
+.hero-people { 
+      background-image:url(../images/SL_office.jpg); 
+      background-position: center 45%; 
+      min-height: 70vh;
+      padding: clamp(3rem,9vw,6rem) 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-size: cover;
+}
+.hero-groups { 
+      background-image:url(../images/group.jpg); 
+      background-position: center 10%; 
+      min-height: 70vh;
+      padding: clamp(3rem,9vw,6rem) 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-size: cover;
+}
+.hero-space { 
+      background-image:url(../images/Room_B_hero.jpg); 
+      background-position: center 50%; 
+      min-height: 70vh;
+      padding: clamp(3rem,9vw,6rem) 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-size: cover;
+}
