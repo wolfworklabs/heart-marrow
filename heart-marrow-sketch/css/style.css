@@ -238,14 +238,14 @@ main .eyebrow {
 .card.indigo { 
       background: var(--ink); 
 }
-.card.Tpurple {
-      background: var(--Tpurple);
+.card.leaf {
+      background: var(--leaf-deep);
 }
-.card.Tpurple h2 { color: #efe9dc; }
-.card.Tpurple h2 span { color:#aeb9c7; }
-.card.Tpurple .label { color:#8fa3bd; } 
-.card.Tpurple p { color:#c3cdd9; }
-.card.Tpurple a { 
+.card.leaf h2 { color: #efe9dc; }
+.card.leaf h2 span { color:#aeb9c7; }
+.card.leaf .label { color:#8fa3bd; } 
+.card.leaf p { color:#c3cdd9; }
+.card.leaf a { 
       color: #e8c99b; 
       border-color:var(--clay); 
 }
