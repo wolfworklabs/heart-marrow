@@ -291,6 +291,16 @@ main .eyebrow {
       color: #4a5e2a; 
       border-color: #243015; 
 }
+
+.card.madder-deep { background:var(--madder-deep); }
+.card.madder-deep h2 { color:#efe9dc; } 
+.card.madder-deep h2 span { color:#aeb9c7; }
+.card.madder-deep .label { color:#8fa3bd; } 
+.card.madder-deep p { color:#c3cdd9; }
+.card.madder-deep a { 
+      color: #e8c99b; 
+      border-color:var(--clay); 
+}
 .initials { 
       width: 180px; 
       height: 130px; 
