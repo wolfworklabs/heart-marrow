@@ -262,6 +262,19 @@ main .eyebrow {
 .card.leaf { 
       background: var(--leaf); 
 }
+.card.deep_leaf { 
+      background: var(--leaf-deep); 
+}
+.card.deep_leaf h2 { 
+      color: #efe9dc; 
+} 
+.card.deep_leaf h2 span { color:#aeb9c7; }
+.card.deep_leaf .label { color:#8fa3bd; } 
+.card.deep_leaf p { color:#c3cdd9; }
+.card.deep_leaf a { 
+      color: #e8c99b; 
+      border-color:var(--clay); 
+}
 .card.leaf h2 { color:#243015; } 
 .card.leaf h2 span { color:#4a5e2a; }
 .card.leaf .label { color:#15180f; } .card.leaf p { color:var(--leaf-deep); }
