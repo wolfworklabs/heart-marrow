@@ -292,7 +292,7 @@ main .eyebrow {
       border-color: #243015; 
 }
 
-.card.clay-deep { background:var(--madder-deep); }
+.card.clay-deep { background:var(--clay-deep); }
 .card.clay-deep h2 { color:#efe9dc; } 
 .card.clay-deep h2 span { color:#aeb9c7; }
 .card.clay-deep .label { color:#8fa3bd; } 
