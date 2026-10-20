@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Assorter</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="page">
+
+  <!-- <header class="site-header">
+    <h1 class="site-title">The Assorter</h1>
+    <a href="/tasks/new" class="new-task-link">+ new task</a>
+  </header> -->
+
+  <nav class="week-nav">
+  <span class="week-nav-spacer"></span>
+  <span class="week-date">
+    Week of <%= new Date(weekStr + 'T12:00:00').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) %>
+    <% if (isCurrentWeek) { %><span class="current-badge">this week</span><% } %>
+  </span>
+  <a href="/tasks/new" class="new-task-link">+ new task</a>
+</nav>
+
+  <p class="section-label">this week</p>
+
+  <% if (weekTasks.length === 0) { %>
+    <p class="empty">Nothing assigned to this week yet.</p>
+  <% } else { %>
+
+<% weekTasks.filter(t => t.status !== 'done').forEach(task => { %>
+  <div class="task-row">
+    <span class="task-category"><%= task.category_name || '' %></span>
+    <a href="/tasks/<%= task.id %>" class="task-title-link"><%= task.title %></a>
+    <span class="task-action">
+      <form action="/tasks/<%= task.id %>/done" method="POST">
+        <button type="submit">✓</button>
+      </form>
+    </span>
+  </div>
+  <% task.subtasks.filter(s => s.status !== 'done').forEach(sub => { %>
+    <div class="task-row subtask-row">
+      <span class="task-category"></span>
+      <form action="/tasks/<%= sub.id %>/done" method="POST">
+        <button type="submit" class="subtask-toggle"><%= sub.title %></button>
+      </form>
+      <span class="task-action"></span>
+    </div>
+  <% }) %>
+  <% task.subtasks.filter(s => s.status === 'done').forEach(sub => { %>
+    <div class="task-row subtask-row done">
+      <span class="task-category"></span>
+      <span class="subtask-done-title"><%= sub.title %></span>
+      <span class="task-action">
+        <form action="/tasks/<%= sub.id %>/undo" method="POST">
+          <button type="submit">↩</button>
+        </form>
+      </span>
+    </div>
+  <% }) %>
+<% }) %>
+
+<% weekTasks.filter(t => t.status === 'done').forEach(task => { %>
+  <div class="task-row done">
+    <span class="task-category"><%= task.category_name || '' %></span>
+    <a href="/tasks/<%= task.id %>" class="task-title-link"><%= task.title %></a>
+    <span class="task-action">
+      <form action="/tasks/<%= task.id %>/undo" method="POST">
+        <button type="submit">↩</button>
+      </form>
+    </span>
+  </div>
+  <% task.subtasks.filter(s => s.status === 'done').forEach(sub => { %>
+    <div class="task-row subtask-row done">
+      <span class="task-category"></span>
+      <span class="subtask-done-title"><%= sub.title %></span>
+      <span class="task-action">
+        <form action="/tasks/<%= sub.id %>/undo" method="POST">
+          <button type="submit">↩</button>
+        </form>
+      </span>
+    </div>
+  <% }) %>
+<% }) %>
+
+<% weekTasks.filter(t => t.status === 'done').forEach(task => { %>
+  <div class="task-row done">
+    <span class="task-category"><%= task.category_name || '' %></span>
+    <a href="/tasks/<%= task.id %>" class="task-title-link"><%= task.title %></a>
+      <span class="task-action">
+        <form action="/tasks/<%= task.id %>/undo" method="POST">
+            <button type="submit">↩</button>
+          </form>
+        </span>
+      </div>
+    <% }) %>
+
+  <% } %>
+
+</div>
+
+<div class="footer-link">
+  <a href="/backlog">Backlog</a>
+</div>
+
+</body>
+</html>

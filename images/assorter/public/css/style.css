@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Cormorant+SC:wght@300;400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;1,300&display=swap');
+
+/* ── Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #373632;
+  --line: #A68660;
+  --margin-line: #731F1F;
+  --cream: #D4BC99;
+  --cream-dim: #a89070;
+  --cream-faint: #5a5549;
+  --rust: #B46D62;
+  --rust-dim: #A68660;
+  --margin-width: 88px;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 36px;
+  min-height: 100vh;
+}
+
+/* ── Notebook lines ── */
+/* body {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 35px,
+    var(--line) 35px,
+    var(--line) 36px
+  );
+  background-attachment: local;
+} */
+
+/* ── Layout ── */
+.page {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0 20px 80px;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Margin line — full height */
+.page::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: calc((100vw - 900px) / 2 + var(--margin-width) + 20px);
+  width: 2px;
+  height: 100vh;
+  background: var(--margin-line);
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* ── Header ── */
+.site-header {
+  padding: 8px 0 8px;
+  display: grid;
+  grid-template-columns: var(--margin-width) 1fr auto;
+  align-items: baseline;
+  gap: 0 12px;
+}
+
+.site-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--cream);
+  letter-spacing: 2px;
+  line-height: 36px;
+  padding-left: 16px;
+  white-space: nowrap;
+  grid-column: 2;
+}
+
+.site-header-spacer {
+  display: block;
+}
+
+/* ── Week nav ── */
+.week-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 16px 0 8px;
+  padding-left: calc(var(--margin-width) + 16px);
+  font-size: 14px;
+  color: var(--cream-dim);
+  letter-spacing: 0.5px;
+}
+
+.week-nav-spacer {
+  display: block;
+}
+
+.week-nav a {
+  color: var(--cream-faint);
+  text-decoration: none;
+}
+
+.week-nav a:hover {
+  color: var(--cream-dim);
+}
+
+.week-date {
+  font-family: 'Cormorant SC', serif;
+  font-size: 13px;
+  color: var(--cream-dim);
+  letter-spacing: 1px;
+  padding-left: 12px;
+}
+
+.current-badge {
+  font-size: 10px;
+  color: var(--rust);
+  letter-spacing: 1px;
+  margin-left: 8px;
+}
+
+.nav-placeholder {
+  display: inline-block;
+  width: 40px;
+}
+
+/* ── Section labels ── */
+.section-label {
+  font-family: 'Cormorant SC', serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--cream-faint);
+  margin-left: var(--margin-width);
+  padding-left: 12px;
+  line-height: 36px;
+}
+
+/* ── Task rows ── */
+.task-row {
+  display: grid;
+  grid-template-columns: var(--margin-width) 1fr auto;
+  align-items: center;
+  line-height: 36px;
+  min-height: 36px;
+}
+
+.task-category {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-style: italic;
+  font-size: 11px;
+  color: var(--rust);
+  padding-right: 12px;
+  text-align: right;
+  line-height: 36px;
+}
+
+.task-title-link {
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 300;
+  padding-left: 12px;
+}
+
+.task-title-link:hover {
+  color: var(--cream-dim);
+}
+
+.task-action button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--cream-faint);
+  font-size: 14px;
+  padding: 0 4px;
+  line-height: 36px;
+}
+
+.task-action button:hover {
+  color: var(--cream);
+}
+
+.task-action form {
+  display: inline;
+}
+
+/* ── Subtask rows ── */
+.subtask-row {
+  grid-template-columns: var(--margin-width) 1fr auto;
+}
+
+.subtask-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--cream-dim);
+  font-size: 14px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  padding-left: 48px;
+  text-align: left;
+  line-height: 36px;
+  width: 100%;
+}
+
+.subtask-toggle:hover {
+  color: var(--cream);
+}
+
+.subtask-done-title {
+  color: var(--cream-faint);
+  font-size: 14px;
+  font-style: italic;
+  text-decoration: line-through;
+  text-decoration-color: var(--cream-faint);
+  padding-left: 48px;
+  line-height: 36px;
+}
+
+/* ── Done tasks ── */
+.task-row.done .task-title-link {
+  color: var(--cream-faint);
+  text-decoration: line-through;
+  text-decoration-color: var(--cream-faint);
+}
+
+.task-row.done .task-category {
+  color: var(--cream-faint);
+  opacity: 0.5;
+}
+
+/* ── Empty state ── */
+.empty {
+  margin-left: var(--margin-width);
+  padding-left: 12px;
+  color: var(--cream-faint);
+  font-style: italic;
+  font-size: 14px;
+  line-height: 36px;
+}
+
+/* ── Divider ── */
+.section-divider {
+  border: none;
+  border-top: 1px dashed var(--cream-faint);
+  opacity: 0.2;
+  margin: 0;
+}
+
+/* ── Footer link (Backlog) ── */
+.footer-link {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 12px;
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+}
+
+.footer-link a {
+  font-family: 'Cormorant SC', serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: var(--cream-dim);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer-link a:hover {
+  color: var(--cream);
+}
+
+/* ── New task link ── */
+.new-task-link {
+  font-family: 'Cormorant SC', serif;
+  font-size: 13px;
+  color: var(--rust);
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.new-task-link:hover {
+  color: var(--cream-dim);
+}
+
+/* ── Responsive: narrow screens ── */
+@media (max-width: 600px) {
+  .page::before {
+    left: calc(var(--margin-width) + 20px);
+  }
+}
+
+body {
+  padding-top: 0;
+}
+
+.page {
+  padding-top: 0;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Task — The Assorter</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <header>
+    <h1>The Assorter</h1>
+    <a href="/">← Back</a>
+  </header>
+
+  <main>
+    <h2>New Task</h2>
+
+    <form action="/tasks" method="POST">
+
+      <label for="title">Task</label>
+      <input type="text" id="title" name="title" required autofocus>
+
+      <label for="category_id">Category</label>
+      <select id="category_id" name="category_id">
+        <option value="">— none —</option>
+        <% categories.forEach(cat => { %>
+          <option value="<%= cat.id %>"><%= cat.name %></option>
+        <% }) %>
+      </select>
+
+      <label for="priority">Priority</label>
+      <select id="priority" name="priority">
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+        <option value="low">Low</option>
+      </select>
+
+      <label for="due_date">Due Date</label>
+      <input type="date" id="due_date" name="due_date">
+
+      <label for="week_of">Week Of</label>
+      <input type="date" id="week_of" name="week_of">
+
+      <label for="recurrence">Repeats</label>
+      <select id="recurrence" name="recurrence">
+        <option value="none">Does not repeat</option>
+        <option value="daily">Daily</option>
+        <option value="weekly">Weekly</option>
+        <option value="monthly">Monthly</option>
+      </select>
+
+      <label for="notes">Notes</label>
+      <textarea id="notes" name="notes" rows="4"></textarea>
+
+      <button type="submit">Add Task</button>
+
+    </form>
+  </main>
+
+</body>
+</html>

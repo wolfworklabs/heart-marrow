@@ -4,7 +4,8 @@
     --madder-deep:#8c1226; --leaf:#a3c074; --leaf-deep:#3e5223;
     --body-ink:#3a3428;
     --Tpurple: #4b2f3a;
-  }
+    --coffee: #5A3F22;
+}
 * { 
       margin: 0; 
       padding: 0; 
@@ -301,6 +302,17 @@ main .eyebrow {
       color: #e8c99b; 
       border-color:var(--clay); 
 }
+
+.card.coffee { 
+      background:var(--coffee); 
+}    
+.card.coffee h2 { color:#efe9dc; }
+.card.coffee h2 span { color:#aeb9c7; }
+.card.coffee .label { color:#8fa3bd; }
+.card.coffee p { color:#c3cdd9; }
+.card.coffee a { 
+      color: #e8c99b; 
+      border-color:var(--clay);       
 .initials { 
       width: 180px; 
       height: 130px; 

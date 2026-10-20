@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= task.title %> — The Assorter</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <header>
+    <h1>The Assorter</h1>
+   <a href="/">← Back</a>
+   <a href="/tasks/<%= task.id %>/edit">Edit</a>
+   <form action="/tasks/<%= task.id %>/delete" method="POST" style="display:inline;">
+    <button type="submit" onclick="return confirm('Delete this task?')">✕ Delete</button>
+  </form>
+  </header>
+
+  <main>
+
+    <div class="task-detail">
+      <div class="task-meta">
+        <span class="category"><%= task.category_name || 'Uncategorized' %></span>
+        <span class="priority"><%= task.priority %></span>
+        <span class="status"><%= task.status %></span>
+      </div>
+
+      <h2><%= task.title %></h2>
+
+      <% if (task.notes) { %>
+        <p class="task-notes"><%= task.notes %></p>
+      <% } %>
+
+      <% if (task.due_date) { %>
+        <p class="due">Due: <%= task.due_date.toLocaleDateString() %></p>
+      <% } %>
+
+      <% if (task.status !== 'done') { %>
+        <form action="/tasks/<%= task.id %>/done" method="POST">
+          <button type="submit">✓ Mark Done</button>
+        </form>
+      <% } else { %>
+        <p class="completed">✓ Completed <%= task.completed_at ? task.completed_at.toLocaleDateString() : '' %></p>
+        <form action="/tasks/<%= task.id %>/undo" method="POST">
+          <button type="submit">↩ Undo</button>
+        </form>
+      <% } %>
+
+    </div>
+
+    <hr>
+
+    <section class="subtasks">
+      <h3>Subtasks</h3>
+
+      <% if (subtasks.length === 0) { %>
+        <p class="empty">No subtasks yet.</p>
+      <% } else { %>
+        <ul class="subtask-list">
+         <% subtasks.forEach(sub => { %>
+          <li class="subtask <%= sub.status %>">
+          <% if (sub.status !== 'done') { %>
+            <form action="/tasks/<%= sub.id %>/done" method="POST">
+              <button type="submit" class="subtask-toggle"><%= sub.title %></button>
+            </form>
+          <% } else { %>
+            <span class="crossed-off"><%= sub.title %></span>
+            <form action="/tasks/<%= sub.id %>/undo" method="POST">
+              <button type="submit" class="undo-small">↩</button>
+            </form>
+          <% } %>
+          <form action="/tasks/<%= sub.id %>/delete" method="POST">
+            <button type="submit" class="delete-small">✕</button>
+          </form>
+      </li>
+    <% }) %>
+        </ul>
+      <% } %>
+
+      <h4>Add a Subtask</h4>
+      <form action="/tasks/<%= task.id %>/subtasks" method="POST">
+        <input type="text" name="title" placeholder="Subtask title" required>
+        <button type="submit">Add</button>
+      </form>
+    </section>
+
+  </main>
+
+</body>
+</html>

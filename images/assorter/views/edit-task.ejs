@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Task — The Assorter</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <header>
+    <h1>The Assorter</h1>
+    <a href="/tasks/<%= task.id %>">← Back</a>
+  </header>
+
+  <main>
+    <h2>Edit Task</h2>
+
+    <form action="/tasks/<%= task.id %>/edit" method="POST">
+
+      <label for="title">Task</label>
+      <input type="text" id="title" name="title" value="<%= task.title %>" required autofocus>
+
+      <label for="category_id">Category</label>
+      <select id="category_id" name="category_id">
+        <option value="">— none —</option>
+        <% categories.forEach(cat => { %>
+          <option value="<%= cat.id %>" <%= task.category_id === cat.id ? 'selected' : '' %>>
+            <%= cat.name %>
+          </option>
+        <% }) %>
+      </select>
+
+      <label for="priority">Priority</label>
+      <select id="priority" name="priority">
+        <option value="low" <%= task.priority === 'low' ? 'selected' : '' %>>Low</option>
+        <option value="medium" <%= task.priority === 'medium' ? 'selected' : '' %>>Medium</option>
+        <option value="high" <%= task.priority === 'high' ? 'selected' : '' %>>High</option>
+      </select>
+
+      <label for="due_date">Due Date</label>
+      <input type="date" id="due_date" name="due_date" 
+        value="<%= task.due_date ? task.due_date.toISOString().split('T')[0] : '' %>">
+
+      <label for="week_of">Week Of</label>
+      <input type="date" id="week_of" name="week_of"
+        value="<%= task.week_of ? task.week_of.toISOString().split('T')[0] : '' %>">
+
+      <label for="recurrence">Repeats</label>
+      <select id="recurrence" name="recurrence">
+        <option value="none" <%= task.recurrence === 'none' ? 'selected' : '' %>>Does not repeat</option>
+        <option value="daily" <%= task.recurrence === 'daily' ? 'selected' : '' %>>Daily</option>
+        <option value="weekly" <%= task.recurrence === 'weekly' ? 'selected' : '' %>>Weekly</option>
+        <option value="monthly" <%= task.recurrence === 'monthly' ? 'selected' : '' %>>Monthly</option>
+      </select>
+
+      <label for="notes">Notes</label>
+      <textarea id="notes" name="notes" rows="4"><%= task.notes || '' %></textarea>
+
+      <button type="submit">Save Changes</button>
+
+    </form>
+  </main>
+
+</body>
+</html>
