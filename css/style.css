@@ -312,7 +312,31 @@ main .eyebrow {
 .card.coffee p { color:#c3cdd9; }
 .card.coffee a { 
       color: #e8c99b; 
-      border-color:var(--clay);       
+      border-color:var(--clay); 
+}  
+
+.card .more summary {
+      cursor: pointer;
+      list-style: none;
+      font-family: Montserrat, sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #efe9dc;
+}
+.card .more summary::-webkit-details-marker { display: none; }
+.card .more summary::after { content: " \2193"; }
+.card .more[open] summary::after { content: " \2191"; }
+.card .more[open] summary { margin-bottom: 1rem; }
+
+.card.summary { 
+      cursor: pointer; 
+      font-family: Montserrat, sans-serif; 
+      font-size: 0.72rem; 
+      letter-spacing: 0.15em;
+      text-transform: uppercase; 
+      
+}
 .initials { 
       width: 180px; 
       height: 130px; 
