@@ -264,7 +264,7 @@ main .eyebrow {
       background: var(--leaf); 
 }
 .card.deep_leaf { 
-      background: var(--leaf-deep); 
+      background: #62754A; 
 }
 .card.deep_leaf h2 { 
       color: #efe9dc; 
@@ -314,6 +314,19 @@ main .eyebrow {
       color: #e8c99b; 
       border-color:var(--clay); 
 }  
+.card.darker_green { 
+      background: var(--leaf-deep); 
+}
+
+.card.darker_green h2 { color:#efe9dc; }
+.card.darker_green h2 span { color:#aeb9c7; }
+.card.darker_green .label { color:#8fa3bd; }
+.card.darker_green p { color:#c3cdd9; }
+.card.darker_green a { 
+      color: #e8c99b; 
+      border-color:var(--clay); 
+}  
+
 
 .card .more summary {
       cursor: pointer;
